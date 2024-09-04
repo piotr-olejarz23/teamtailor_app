@@ -61,7 +61,7 @@ class CandidatesFetcher
     {
     'page[number]': page_number,
     'include': "job-applications",
-    'fields[job-applications]': "id, created-at"
+    'fields[job-applications]': "id,created-at"
     }
   end
 
