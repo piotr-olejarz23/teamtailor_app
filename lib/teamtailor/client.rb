@@ -5,7 +5,7 @@ module Teamtailor
     include Singleton
 
     def fetch_candidates_with_jobs(params)
-      request(:get, 'v1/candidates?include=job-applications', params)
+      request(:get, "v1/candidates?include=job-applications", params)
     end
 
     private
@@ -31,14 +31,14 @@ module Teamtailor
 
     def headers
       {
-        'Content-Type' => 'application/json',
-        'Authorization' => teamtailor_credentials(:api_key),
-        'X-Api-Version' => teamtailor_credentials(:api_version)
+        "Content-Type" => "application/json",
+        "Authorization" => teamtailor_credentials(:api_key),
+        "X-Api-Version" => teamtailor_credentials(:api_version)
       }
     end
 
     def success?(resp)
-      [200, 201].include?(resp.status)
+      [ 200, 201 ].include?(resp.status)
     end
 
     def teamtailor_credentials(name)
