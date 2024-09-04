@@ -25,7 +25,6 @@ class CandidatesFetcher
     job_applications = response['included'] || []
 
     candidates.each do |candidate|
-      binding.pry
       csv << candidate_data(candidate, job_applications)
     end
   end
