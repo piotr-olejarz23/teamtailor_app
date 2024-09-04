@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It's a simple application to pull data from the TeamTailor API and create a CSV output file. 
+I wrote the code to be reusable and transparent using design patterns and SOLID.
+I didn't have to, but I also used bootstrap to make the button less ugly :)
