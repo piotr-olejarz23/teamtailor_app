@@ -4,12 +4,12 @@ class CandidatesFetcher
   CSV_HEADERS = %i[candidate_id first_name last_name email job_application_id job_application_created_at].freeze
 
   def perform
-    fetch_all_data_and_save_to_csv
+    fetch_data_and_save_to_csv
   end
 
   private
 
-  def fetch_all_data_and_save_to_csv
+  def fetch_data_and_save_to_csv
     CSV.generate(headers: true, **options) do |csv|
       csv << CSV_HEADERS
       page = 1
