@@ -1,0 +1,3 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <%= button_to "Download CSV File", fetch_data_path(request.params.merge(format: :csv)), data: {turbo: :false}, class: "btn btn-dark btn-lg" %>
+</div>
