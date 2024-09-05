@@ -7,12 +7,14 @@ It's a simple application to pull data from the TeamTailor API and create a CSV 
 * Rails version 7.2.1
 
 * Dependencies used
+
   faraday
   csv
   bootstrap
   rubocop
 
 * Configuration
+  
   Create your own credentials using rails credentails:edit, it should looks like this ->
 
   teamtailor:
@@ -21,9 +23,11 @@ It's a simple application to pull data from the TeamTailor API and create a CSV 
     host: 'https://api.teamtailor.com/'
 
 * Run application
+  
   After updating rails credentials ->
   bundle install
   rails server 
 
 * Database initialization
+  
   No database was configured for this task
