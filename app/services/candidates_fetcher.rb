@@ -12,10 +12,12 @@ class CandidatesFetcher
   def fetch_data_and_save_to_csv
     CSV.generate(headers: true, **options) do |csv|
       csv << CSV_HEADERS
-      page = 1
-      while (response = fetch_page(page))
+      page = 1  
+      while page
+        response = fetch_page(page)
         process_and_save_data(response, csv)
-        page += 1
+     
+        next_page?(response) ? page+=1 : page = false
       end
     end
   end
@@ -43,10 +45,12 @@ class CandidatesFetcher
   end
 
   def fetch_page(page)
-    response = teamtailor_client.fetch_candidates_with_jobs(params(page))
-    response.dig("links", "next").present? ? response : nil
+    teamtailor_client.fetch_candidates_with_jobs(params(page))
   end
 
+  def next_page?(response)
+    response.dig("links", "next").present?
+  end
 
   def fetch_job_application(candidate, job_applications)
     job_application_id = candidate.dig("relationships", "job-applications", "data").first&.dig("id")
@@ -54,7 +58,7 @@ class CandidatesFetcher
   end
 
   def options
-  { col_sep: ";", encoding: "utf-8" }
+   { col_sep: ";", encoding: "utf-8" }
   end
 
   def params(page_number)
