@@ -12,11 +12,11 @@ class CandidatesFetcher
   def fetch_data_and_save_to_csv
     CSV.generate(headers: true, **options) do |csv|
       csv << CSV_HEADERS
-      page = 1  
+      page = 1
       while page
         response = fetch_page(page)
         process_and_save_data(response, csv)
-     
+
         next_page?(response) ? page+=1 : page = false
       end
     end
